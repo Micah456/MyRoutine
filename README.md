@@ -21,10 +21,12 @@ Demo Organisational App in JS and HTML
 - Webpage user interace - HTML, JS, and CSS
 
 ### Webpages
-- Homepage (/) - choose a user
-- User Homepage (/{username}) - has options to create, run, delete routines and display total number of stars earnt
-- Create routine (/{username}/create-routine) - option to create and save routine
-- Routine (/{username}/routine/{routine-id}) - run a routine
+- Homepage (/app) - choose a user
+- User Homepage (/app/{username}) - has options to create, run, delete routines and display total number of stars earnt
+- Create routine (/app/{username}/routine/create) - option to create and save routine
+- Edit routine (/app/{username}/routine/{routine-id}) edit or delete a routine
+- Edit step (/app/{username}/routine/{routine-id}/steps/{step-id}) edit or delete a step
+- Run routine (/app/{username}/routine/{routine-id}/run) - run a routine
 
 ## Data Structures
 >Note that the names used are NOT final
@@ -42,6 +44,7 @@ Routine:
 Step:
 - ID
 - Name
+- Order
 - Time Alloted
 - Routine ID
 
@@ -59,6 +62,7 @@ Routine:
 
 Step:
 - ID: int
+- Order: int (zero-indexed)
 - Name: string
 - Time alloted : int (seconds)
 
@@ -76,6 +80,7 @@ Routine:
 
 Step:
 - ID: int
+- Order: int (zero-indexed)
 - Name: string
 - Time alloted : int (seconds)
 
@@ -92,11 +97,13 @@ Step:
                 "Steps" : [
                     {
                         "ID" : 1,
+                        "Order" : 0
                         "Name" : "Step 1",
                         "Time Alloted" : 10
                     },
                     {
                         "ID" : 2,
+                        "Order": 1
                         "Name" : "Step 2",
                         "Time Alloted" : 30
                     }
